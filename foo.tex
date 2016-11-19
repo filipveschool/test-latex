@@ -1,0 +1,24 @@
+\documentclass{book}
+
+\usepackage{etoolbox}
+
+\newtoggle{cover}    
+\togglefalse{cover}
+
+\InputIfFileExists{foo.cfg}{}{}
+
+\iftoggle{cover}{%
+  \title{Version 5 document}
+}{%
+  \title{Version 6 document}
+}
+
+\begin{document}
+\maketitle
+    \chapter{Chapter 1}
+    \iftoggle{cover}{%
+      \section{Version 5 section filip}
+    }{%
+      \section{Version 6 section filip}
+    }%
+\end{document}
